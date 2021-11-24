@@ -185,7 +185,6 @@ struct TagsEdit::Impl
             auto cornerRadius = 4;
             path.addRoundedRect(i_r, cornerRadius, cornerRadius);
             p.fillPath(path, palette.brush(QPalette::ColorGroup::Inactive, QPalette::ColorRole::Highlight));
-            
 
             // draw text
             p.drawText(text_pos, it->text);
@@ -468,9 +467,8 @@ struct TagsEdit::Impl
     {
         if (mark) {
             auto e = select_start + select_size;
-            int anchor = select_size > 0 && cursor == select_start ? e
-                         : select_size > 0 && cursor == e          ? select_start
-                                                                   : cursor;
+            int anchor =
+                select_size > 0 && cursor == select_start ? e : select_size > 0 && cursor == e ? select_start : cursor;
             select_start = qMin(anchor, pos);
             select_size = qMax(anchor, pos) - select_start;
         } else {
