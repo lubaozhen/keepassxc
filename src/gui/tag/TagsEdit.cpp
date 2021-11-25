@@ -909,6 +909,7 @@ void TagsEdit::tags(QStringList const& tags)
     impl->updateDisplayText();
     impl->calcRectsAndUpdateScrollRanges();
     viewport()->update();
+    updateGeometry();
 }
 
 QStringList TagsEdit::tags() const
